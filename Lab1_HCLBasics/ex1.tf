@@ -11,3 +11,10 @@ resource "local_file" "games" {
   content  = "FIFA 21"
 }
 # now both terraform plan and apply will run successfully
+
+resource "local_sensitive_file" "games" {
+  filename    = "/root/favorite-games"
+  content  = "FIFA 21"
+}
+
+# using local_sensitive_file instead of local_file we can hide the content of the file from displaying during terraform plan or apply
